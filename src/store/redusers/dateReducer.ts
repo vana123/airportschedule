@@ -4,18 +4,16 @@ interface dataState {
 
 interface dataAction{
     type:string
-    payload?:any
+    payload: string
 }
 
 const defaultDate: dataState = {
-    date: "2018-07-22"
+    date: "2022-07-22"
 }
-
-const SET_DATE = "SET_DATE"
 
 export const dateReducer = (state = defaultDate, action: dataAction): dataState => {
     switch(action.type){
-        case SET_DATE:
+        case "SET_DATE":
             return{...state, date: action.payload}
 
 
