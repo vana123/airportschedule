@@ -49,6 +49,7 @@ export const Departures = () => {
             <div className="List">
                 <div className="List_message">
                     <h1>not exist</h1>
+                    <p>change the date</p>
                 </div>
             </div>
         )
