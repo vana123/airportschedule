@@ -34,6 +34,7 @@ export const Form: React.FC = () => {
             <input
                 className="Form__input"
                 type="text"
+                placeholder={"🔎"}
                 value={search}
                 onChange={searchChangeHandler}
             />
