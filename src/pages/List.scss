@@ -1,0 +1,30 @@
+.List{
+    display: flex;
+    justify-content: center;
+
+    &::-webkit-scrollbar{
+        display: none;
+    }
+    &__ul{
+        list-style-type: none;
+    }
+    &__li{
+        display: flex;
+        align-items: center;
+        height: 50px;
+        background-color: rgba(102, 102, 102, 0.61);
+        border-radius: 10px;
+        margin: 10px 0;
+    }
+
+    &__fltNo, &__time, &__nameCompani, &__city, &__Status{
+        display: flex;
+        margin: 0 10px;
+        
+    }
+
+    &_message{
+        position: absolute;
+        top: 50%;
+    }
+}

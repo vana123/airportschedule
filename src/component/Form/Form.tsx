@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useTypesSelector } from '../../hooks/useTypedSelecor';
 import React from 'react';
 import { NavLink } from "react-router-dom";
+import './Form.scss'
 
 export const Form: React.FC = () => {
     const dispatch = useDispatch()
@@ -25,17 +26,19 @@ export const Form: React.FC = () => {
     return(
         <div className="Form">
             <input
+                className="Form__input"
                 type="date"
                 value = {date}
                 onChange = {dateChangeHandler}/>
 
             <input
+                className="Form__input"
                 type="text"
                 value={search}
                 onChange={searchChangeHandler}
             />
-        <NavLink  to="/arrival">arrival</NavLink>
-        <NavLink  to="/departures">departures</NavLink>
+        <NavLink className="Form__a"  to="/arrival">arrival</NavLink>
+        <NavLink className="Form__a" to="/departures">departures</NavLink>
         </div>
     )
 }

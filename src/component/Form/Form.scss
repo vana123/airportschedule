@@ -1,0 +1,80 @@
+$cross-fade-border-width: 2px;
+$cross-fade-border-color: black;
+$sec-cross-fade-border-color: black;
+$cross-fade-button-padding: 4px 10px;
+$cross-fade-text-color: black;
+$sec-cross-fade-text-color: white;
+$cross-fade-border-radius: 0px;
+$cross-fade-background: white;
+$sec-cross-fade-background: #666;
+$cross-fade-transition-time: 0.75s;
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.Form{
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+
+    &__input{
+        margin: 0px 10px;
+        font-size: 20px;
+        width: 166px;
+    }
+
+    &__a{
+        margin: 0px 10px;
+        display: inline-block;
+        padding: $cross-fade-button-padding;
+        border: $cross-fade-border-width $cross-fade-border-color solid;
+        text-align: center;
+        text-decoration: none;
+        color: $cross-fade-text-color;
+        position: relative;
+        overflow: hidden;
+        transition: color $cross-fade-transition-time ease-in-out;
+        z-index: 1;
+        border-radius: $cross-fade-border-radius;
+  
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -25%;
+            width: 150%;
+            height: 100%;
+            background: rgba($sec-cross-fade-background, 0.5);
+            transition: transform $cross-fade-transition-time ease-in-out;
+            z-index: -1;
+        }
+        
+        &:before {
+            transform: translate3d(100%, 0, 0) skew(20deg);
+            transform-origin: 0 0;
+        }
+        
+        &:after {
+            transform: translate3d(-100%, 0, 0) skew(20deg);
+            transform-origin: 100% 100%;
+        }
+  
+        &:hover {
+            color: $sec-cross-fade-text-color;
+            &:before,
+            &:after {
+            transform: translate3d(0, 0, 0) skew(20deg);
+            }
+        }
+    }
+
+}
+
+.active{
+    color: $sec-cross-fade-text-color;
+    background: rgba(102, 102, 102, 0.5);
+}

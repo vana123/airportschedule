@@ -28,32 +28,44 @@ export const Departures = () => {
 
     if(loading){
         return (
-            <h1> loading... </h1>
+            <div className="List">
+                <div className="List_message">
+                    <h1> loading... </h1>
+                </div>
+            </div>
         )
     }
     if(error){
         return(
-            <h1>{error}</h1>
+            <div className="List">
+                <div className="List_message">
+                <h1>{error}</h1>
+                </div>
+            </div>
         )
     }
-    if(flights.arrival[0] == undefined){
+    if(flights.departure[0] == undefined){
         return(
-            <h1>not exist</h1>
+            <div className="List">
+                <div className="List_message">
+                    <h1>not exist</h1>
+                </div>
+            </div>
         )
     }
 
     return(
         <>
-            <div className="Departures">
-                <ul>
+            <div className="Departures List">
+                <ul className="List__ul">
                 {arrivalfiltred.map(item => {
                     return (
-                        <li key={item.ID}>
-                            <div>{item.fltNo}</div>
-                            <div>{item.actual}</div>
-                            <div>{item.airline.ua.name}</div>
-                            <div>{item["airportToID.name"]}</div>
-                            <div>{item.status}</div>
+                        <li key={item.ID} className="List__li">
+                            <div className="List__fltNo">Номер рейсу: {item.fltNo}</div>
+                            <div className="List__time">Час: {item.actual}</div>
+                            <div className="List__nameCompani">Компанія: {item.airline.ua.name}</div>
+                            <div className="List__city">Напрямок: {item["airportToID.name"]}</div>
+                            <div className="List__Status">Статус: {item.status}</div>
                         </li>
                     )
                 })}
