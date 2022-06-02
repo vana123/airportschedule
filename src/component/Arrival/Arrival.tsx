@@ -58,15 +58,22 @@ export const Arrival: React.FC = () => {
     return(
         <>
             <div className="Arrival List">
+                <div className="List__title">
+                    <div className="List__title_item">Номер рейсу: </div>
+                    <div className="List__title_item">Час: </div>
+                    <div className="List__title_item">Компанія: </div>
+                    <div className="List__title_item">Напрямок: </div>
+                    <div className="List__title_item">Статус: </div>
+                </div>
                 <ul className="List__ul">
                 {arrivalfiltred.map(item => {
                     return (
                         <li key={item.ID} className="List__li">
-                            <div className="List__fltNo">Номер рейсу: {item.fltNo}</div>
-                            <div className="List__time">Час: {new Date(item.actual).getHours()+":"+new Date(item.actual).getMinutes()}</div>
-                            <div className="List__nameCompani">Компанія: {item.airline.ua.name}</div>
-                            <div className="List__city">Напрямок: {item["airportFromID.name"]}</div>
-                            <div className="List__Status">Статус: {item.status}</div>
+                            <div className="List__fltNo List__li_item">{item.fltNo}</div>
+                            <div className="List__time List__li_item" >{new Date(item.actual).getHours()+":"+new Date(item.actual).getMinutes()}</div>
+                            <div className="List__nameCompani List__li_item">{item.airline.ua.name}</div>
+                            <div className="List__city List__li_item">{item["airportFromID.name"]}</div>
+                            <div className="List__Status List__li_item">{item.status}</div>
                         </li>
                     )
                 })}
